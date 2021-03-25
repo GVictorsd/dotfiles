@@ -8,6 +8,9 @@ Plug 'vim-syntastic/syntastic'
 Plug 'ackyshake/VimCompletesMe'
 Plug 'pacha/vem-tabline'
 Plug 'unblevable/quick-scope'
+Plug 'machakann/vim-highlightedyank'
+Plug 'mattboehm/vim-accordion'
+
 call plug#end()
 
 
@@ -68,10 +71,18 @@ set relativenumber
 set noshowmode
 
 imap [ []<esc>i
+imap [] []<esc>i
 imap { {}<esc>i
+imap {} {}<esc>i
 imap ( ()<esc>i
+imap () ()<esc>i
+"imap < <><esc>i
+"imap <> <><esc>i
 imap {<CR> {<CR>}<esc>kA<CR>
 imap ff <esc>bdwA
+noremap <leader>tn <esc>:tabnew<cr>
+noremap <leader>tl <esc>:tabn<cr>
+noremap <leader>th <esc>:tabp<cr>
 
 
 " Make vertical separator pretty

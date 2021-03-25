@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -184,34 +184,44 @@ set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
+#client.focused          #FF0000 			#FF0000          $text-color          #00ff00
+client.focused 	#83FFFF #83FFFF #ffffff #83FFFF
 client.unfocused        $inactive-bg-color 	$inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inactive-bg-color 	$inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
+# 	bar {
+# 	        status_command i3status
+# 	
+# 			height 15
+# 			position bottom
+# 			tray_output primary
+# 			status_command i3blocks -c ~/.config/i3blocks/config
+# 	
+# 			colors {
+# 					background $bg-color
+# 		    		separator #757575
+# 					#                  border             background         text
+# 					focused_workspace  $bg-color          $bg-color          $text-color
+# 					inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+# 					urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+# 				}
+# 	}
 
-		height 15
-		position bottom
-		tray_output primary
-		status_command i3blocks -c ~/.config/i3blocks/config
-
-		colors {
-				background $bg-color
-	    		separator #757575
-				#                  border             background         text
-				focused_workspace  $bg-color          $bg-color          $text-color
-				inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-				urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-			}
-}
-
-exec_always --no-startup-id i3-msg gaps inner all set 10
+exec_always --no-startup-id i3-msg gaps inner all set 7
 exec_always --no-startup-id i3-msg gaps outer all set 5
 for_window [class=".*"] border pixel 0
+
+
+#launch compositor and nitrogen
+exec_always --no-startup-id compton -f 
+exec_always --no-startup-id nitrogen --restore 
+
+#launch polybar...
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 
 # Only enable gaps on a workspace when there is at least one container
 smart_gaps on
@@ -223,3 +233,5 @@ smart_borders on
 smart_borders no_gaps
 # hide edge borders onlu if there id one window with no gaps
 hide_edge_borders smart_no_gaps
+
+bindsym Print exec "maim -u -s -n -l -c 0.157,0.333,0.466,0.4 ~/Pictures/Screenshot-$(date -Iseconds | cut -d'+' -f1).png"

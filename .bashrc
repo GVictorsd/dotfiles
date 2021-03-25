@@ -1,12 +1,3 @@
-#
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -134,4 +125,17 @@ export PATH=$PATH:'/home/gummadi/.local/bin' #ipython
 source ~/.myShellScripts.sh
 
 export TERM=xterm-256color
+
+# launch neofetch
+# neofetch
+
+# Only load liquidprompt in interactive shells, not from a script or from scp
+echo $- | grep -q i 2>/dev/null && . /usr/share/liquidprompt/liquidprompt
+
+
+# Only load liquidprompt in interactive shells, not from a script or from scp
+echo $- | grep -q i 2>/dev/null && . /usr/share/liquidprompt/liquidprompt
+
+source "$HOME/.cargo/env"
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig:/usr/share/pkgconfig/:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig
 
