@@ -120,6 +120,7 @@ fi
 export PATH=$PATH:'~/Downloads/blender-2.90.0-linux64/' #blender
 export PATH=$PATH:'~/Downloads/android-studio/bin' #android_studio
 export PATH=$PATH:'/home/gummadi/.local/bin' #ipython
+export PATH=$PATH:'/home/gummadi/.eww/target/release/eww'
 
 # custom shell script
 source ~/.myShellScripts.sh

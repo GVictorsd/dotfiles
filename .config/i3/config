@@ -222,6 +222,10 @@ exec_always --no-startup-id nitrogen --restore
 #launch polybar...
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+#launch eww left side widgets...
+bindsym $mod+b exec ". /home/gummadi/.config/eww/launch.sh"
+bindsym $mod+n exec ". /home/gummadi/.config/eww/delaunch.sh"
+
 
 # Only enable gaps on a workspace when there is at least one container
 smart_gaps on
